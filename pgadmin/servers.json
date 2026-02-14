@@ -1,0 +1,13 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "AccountantAgent DB",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "accountant_db",
+      "Username": "accountant",
+      "SSLMode": "prefer"
+    }
+  }
+}
