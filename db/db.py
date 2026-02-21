@@ -1,7 +1,7 @@
 import psycopg2
 from dotenv import load_dotenv
 import os
-from db.tables import transaction_table, user_table
+from db.tables import transaction_table, user_table, conversation_table, message_table
 
 load_dotenv()
 DB_URL = os.getenv("DATABASE_URL")
@@ -29,9 +29,13 @@ class DB:
 
       transaction_table_instance = transaction_table.TransactionTable()
       user_table_instance = user_table.UserTable()
+      conversation_table_instance = conversation_table.ConversationTable()
+      message_table_instance = message_table.MessageTable()
 
       cursor.execute(user_table_instance.create_table())
       cursor.execute(transaction_table_instance.create_table())
+      cursor.execute(conversation_table_instance.create_table())
+      cursor.execute(message_table_instance.create_table())
       connection.commit()
 
       return connection
